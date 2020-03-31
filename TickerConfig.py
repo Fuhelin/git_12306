@@ -9,19 +9,19 @@ TICKET_TYPE = 1
 
 # 出发日期(list) "2018-01-06", "2018-01-07"
 STATION_DATES = [
-    "2020-03-31"
+    "2020-04-22"
 ]
 
 # 填入需要购买的车次(list)，"G1353"
 # 修改车次填入规则，注：(以前设置的车次逻辑不变)，如果车次填入为空，那么就是当日乘车所有车次都纳入筛选返回
 # 不填车次是整个list为空才算，如果不是为空，依然会判断车次的，这种是错误的写法 [""], 正确的写法 []
-STATION_TRAINS = ["G3172"]
+STATION_TRAINS = ["Z41"]
 
 # 出发城市，比如深圳北，就填深圳就搜得到
-FROM_STATION = "淮阳南"
+FROM_STATION = "郑州"
 
 # 到达城市 比如深圳北，就填深圳就搜得到
-TO_STATION = "郑州"
+TO_STATION = "兰州"
 
 # 座位(list) 多个座位ex:
 # "商务座",
@@ -33,7 +33,7 @@ TO_STATION = "郑州"
 # "硬座",
 # "无座",
 # "动卧",
-SET_TYPE = ["二等座"]
+SET_TYPE = ["硬卧"]
 
 # 当余票小于乘车人，如果选择优先提交，则删减联系人和余票数一致在提交
 # bool
@@ -52,7 +52,7 @@ PWD = "qq18336495650"
 TICKET_BLACK_LIST_TIME = 5
 
 # 自动打码
-IS_AUTO_CODE = True
+IS_AUTO_CODE = False
 
 # 设置2本地自动打码，需要配置tensorflow和keras库，3为云打码，由于云打码服务器资源有限(为2h4C的cpu服务器)，请不要恶意请求，不然只能关闭服务器
 # ps: 请不要一直依赖云服务器资源，在此向所有提供服务器同学表示感谢
@@ -123,12 +123,22 @@ COOKIE_TYPE = 3
 # chromedriver配置版本只要和chrome的大版本匹配就行
 CHROME_PATH = "/usr/src/app/chromedriver"
 
+
+'''
+cookie = "_passport_session=00e976a672e645bd8590c999b376b6fd9983; 
+_passport_ct=d24da97f36a044b5a8e004755300fd97t6980; BIGipServerotn=351273482.50210.0000;
+ RAIL_EXPIRATION=1585944496459; RAIL_DEVICEID=N6Me3gzhbMPYvrYOtT-x9PL57xgMqIA3DNUN5W7SUB3mbvD_h5iTTWUIeVOj1GJY1Ih3utaYlQzJ7Hv7t-JCP
+ eZnRj7AiiadDlKcqLqBK_9yK1w9FmrZI9VtBlw9-oImJeCa_CpIADGpSqIoj2W1lLUyGdamqJZ8; BIGipServer
+ pool_passport=317522442.50215.0000; route=6f50b51faa11b987e576cdb301e545c4"
+
+'''
+
 # 为了docker37 准备的环境变量，windows环境可以不用管这个参数
 CHROME_CHROME_PATH = "/opt/google/chrome/google-chrome"
 
 # 如果COOKIE_TYPE=3, 则需配置RAIL_EXPIRATION、RAIL_DEVICEID的值
-RAIL_EXPIRATION = ""
-RAIL_DEVICEID = ""
+RAIL_EXPIRATION = "1585944496459"
+RAIL_DEVICEID = "N6Me3gzhbMPYvrYOtT-x9PL57xgMqIA3DNUN5W7SUB3mbvD_h5iTTWUIeVOj1GJY1Ih3utaYlQzJ7Hv7t-JCPeZnRj7AiiadDlKcqLqBK_9yK1w9FmrZI9VtBlw9-oImJeCa_CpIADGpSqIoj2W1lLUyGdamqJZ8"
 # RAIL_EXPIRATION = "1577034103293"
 # RAIL_DEVICEID = "CDno29Erc_Pf3FSXb4dzq-Op64EhWrsi5yUZKVIKR1MAfYo2qFlCeXD8VkexY7_1qg-ClV-fE8j9jgVlPZxRh3wVc2iqLe_5A8sdr62qZx4B22JPF8lFCjpgTKZ5ODW90HJd5tiQsJ1KR9nOqHRxHj1FT5LEIwfw"
 
@@ -150,7 +160,7 @@ PASSENGER_TICKER_STR = {
 
 # 保护12306官网请求频率，设置随机请求时间，原则为5分钟不大于80次
 # 最大间隔请求时间
-MAX_TIME = 3
+MAX_TIME = 1
 # 最小间隔请求时间
 MIN_TIME = 1
 
